@@ -1,5 +1,30 @@
+<script setup>
+import {ref} from 'vue'
+import Linkcard from '@/components/Linkcard.vue';
+
+const Profile = ref({
+  name: 'David Montoya',
+  slogan: 'Full Stack Developer and Student',
+  avatar:
+  'https://api.dicebear.com/10.x/identicon/svg?backgroundColor=101216&rowColor=ff2e88,b400ff&rotate=-28&rowVariant=ooxoo,oxxxo,xooox,xoxox,xxoxx,xxxxx&backgroundColorFill=radial&seed=u38ur3i4'
+
+})
+
+</script>
+
 <template>
-  <main class="flex flex-1 items-center justify-center">
-    <h1 class="text-6xl font-thin text-slate-800">Hello There ✋</h1>
+  <main class="flex min-h-screen flex-col items-center px-4 py-8">
+    <!-- Profile Header -->
+     <div class = "mb-8 flex flex-col items-center text-center">
+      <div class = "mb-4 h-24 w-24 overflow-hidden rounded-full border-4 border-green-400 shadow-lg shadow-green-500/20">
+      <img 
+      :src="Profile.avatar" 
+      :alt="Profile.name"
+      class = "h-full w-full object-cover"
+      />
+     </div> 
+      <h1 class ="font-display">{{Profile.name}}</h1>
+      <p> {{Profile.slogan}} </p>
+     </div>
   </main>
 </template>
