@@ -1,47 +1,54 @@
 <script setup>
-import {ref} from 'vue'
-import Linkcard from '@/components/Linkcard.vue';
+import { ref } from 'vue'
+import Linkcard from '@/components/Linkcard.vue'
 
 const Profile = ref({
   name: 'David Montoya',
   slogan: 'Full Stack Developer and Student',
   avatar:
-  'https://api.dicebear.com/10.x/identicon/svg?backgroundColor=101216&rowColor=ff2e88,b400ff&rotate=-28&rowVariant=ooxoo,oxxxo,xooox,xoxox,xxoxx,xxxxx&backgroundColorFill=radial&seed=u38ur3i4'
-
+    'https://api.dicebear.com/10.x/identicon/svg?backgroundColor=101216&rowColor=ff2e88,b400ff&rotate=-28&rowVariant=ooxoo,oxxxo,xooox,xoxox,xxoxx,xxxxx&backgroundColorFill=radial&seed=u38ur3i4'
 })
-
 </script>
 
 <template>
   <main class="flex min-h-screen flex-col items-center px-4 py-8">
     <!-- Profile Header -->
-     <div class = "mb-8 flex flex-col items-center text-center">
-      <div class = "mb-4 h-24 w-24 overflow-hidden rounded-full border-4 border-green-400 shadow-lg shadow-green-500/20">
-      <img 
-      :src="Profile.avatar" 
-      :alt="Profile.name"
-      class = "h-full w-full object-cover"
-      />
-     </div> 
-      <h1 class ="font-display mb-2 text-2xl font-bold text-white sm:text-3xl">{{Profile.name}}</h1>
-      <p class="max-w-xs text-gray-300 sm:text-lg"> {{Profile.slogan}} </p>
-     </div>
-
-     <!-- Link List-->
-      <div class="flex w-fill max-w-xs flex-col gap-4">
-        <Linkcard const x: number 
-        v-for ="x of [1,2,3]" 
-        :key="x"
+    <div class="mb-8 flex flex-col items-center text-center">
+      <div
+        class="mb-4 h-24 w-24 overflow-hidden rounded-full border-4 border-green-400 shadow-lg shadow-green-500/20"
+      >
+        <img
+          :src="Profile.avatar"
+          :alt="Profile.name"
+          class="h-full w-full object-cover"
         />
       </div>
 
-      <!-- Navigate to Info -->
+      <h1
+        class="mb-2 font-display text-2xl font-bold text-white sm:text-3xl"
+      >
+        {{ Profile.name }}
+      </h1>
 
-      <RouterLink 
-      to="/Info" 
-      class="mt-8 text-sm text-gray-400 underline-offset-4 hover:text-green-400 transition-colors duration-200 hover:underline"
-      > 
-      About me => 
+      <p class="max-w-xs text-gray-300 sm:text-lg">
+        {{ Profile.slogan }}
+      </p>
+    </div>
+
+    <!-- Link List -->
+    <div class="flex w-full max-w-xs flex-col gap-4">
+      <Linkcard
+        v-for="x in [1, 2, 3]"
+        :key="x"
+      />
+    </div>
+
+    <!-- Navigate to Info -->
+    <RouterLink
+      to="/Info"
+      class="mt-8 text-sm text-gray-400 underline-offset-4 transition-colors duration-200 hover:text-green-400 hover:underline"
+    >
+      About me =>
     </RouterLink>
   </main>
 </template>
