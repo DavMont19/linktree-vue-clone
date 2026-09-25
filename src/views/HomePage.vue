@@ -6,7 +6,24 @@ const Profile = ref({
   name: 'David Montoya',
   slogan: 'Full Stack Developer and Student',
   avatar:
-    'https://api.dicebear.com/10.x/identicon/svg?backgroundColor=101216&rowColor=ff2e88,b400ff&rotate=-28&rowVariant=ooxoo,oxxxo,xooox,xoxox,xxoxx,xxxxx&backgroundColorFill=radial&seed=u38ur3i4'
+    'https://api.dicebear.com/10.x/identicon/svg?backgroundColor=101216&rowColor=ff2e88,b400ff&rotate=-28&rowVariant=ooxoo,oxxxo,xooox,xoxox,xxoxx,xxxxx&backgroundColorFill=radial&seed=u38ur3i4',
+  links:[
+  {
+      id: 1,
+      title: 'Github',
+      url: 'https://github.com/DavMont19',
+      icon:'code',
+      description: 'Check out my projects',
+  },
+
+  {
+      id: 2,
+      title: 'Linkedin',
+      url:'https://www.linkedin.com/',
+      icon: 'briefcase',
+      description: 'Connect with me professionally',
+  },
+],
 })
 </script>
 
@@ -38,8 +55,12 @@ const Profile = ref({
     <!-- Link List -->
     <div class="flex w-full max-w-xs flex-col gap-4">
       <Linkcard
-        v-for="x in [1, 2, 3]"
-        :key="x"
+        v-for="link in Profile.links"
+        :key="link.id"
+        :title="link.title"
+        :url="link.url"
+        :description="link.description"
+        :icon="link.icon"
       />
     </div>
 
